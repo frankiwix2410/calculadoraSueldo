@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Horas Extras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Calculadora de Sueldo con Horas Extras</h1>
+
+    <label for="horasNormales">Horas Normales:</label>
+    <input type="number" id="horasNormales" placeholder="Ej: 40"><br><br>
+
+    <label for="horasExtras">Horas Extras:</label>
+    <input type="number" id="horasExtras" placeholder="Ej: 5"><br><br>
+
+    <label for="tarifaNormal">Tarifa por Hora Normal:</label>
+    <input type="number" id="tarifaNormal" placeholder="Ej: 10"><br><br>
+
+    <label for="tarifaExtra">Tarifa por Hora Extra:</label>
+    <input type="number" id="tarifaExtra" placeholder="Ej: 15"><br><br>
+
+    <button onclick="calcularSueldo()">Calcular Sueldo</button>
+
+    <h2 id="resultado">Sueldo Total: $0</h2>
+    </div>
+    
+
+    <script>
+        function calcularSueldo() {
+            const horasNormales = parseFloat(document.getElementById("horasNormales").value) || 0;
+            const horasExtras = parseFloat(document.getElementById("horasExtras").value) || 0;
+            const tarifaNormal = parseFloat(document.getElementById("tarifaNormal").value) || 0;
+            const tarifaExtra = parseFloat(document.getElementById("tarifaExtra").value) || 0;
+
+            //operaciones para calcular el sueldo
+            const sueldoNormal = horasNormales * tarifaNormal;
+            const sueldoExtra = horasExtras * tarifaExtra;
+            const sueldoTotal = sueldoNormal + sueldoExtra;
+
+            document.getElementById("resultado").innerText = `Sueldo Total: $${sueldoTotal.toFixed(2)}`;
+        }
+    </script>
+</body>
+
+</html>
